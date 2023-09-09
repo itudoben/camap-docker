@@ -10,7 +10,7 @@ Renseignez votre fichier hosts avec les valeurs:
 
 Puis ```docker compose up -d```
 
-La configuration initiale se fait avec en accédant à https://camap/install
+La configuration initiale se fait en accédant à https://camap/install
 
 # Construction des containers depuis les sources
 
@@ -27,11 +27,6 @@ La présente documentation a été testée sur Debian 11
 ```apt-get install docker-buildx-plugin docker-ce docker-ce-cli docker-compose-plugin```
 
 https://docs.docker.com/engine/install/debian/
-
-
-**installer nodejs dans la bonne version (16)**
-
-https://www.rosehosting.com/blog/how-to-install-node-js-and-npm-on-debian-11/
 
 ## Configuration
 
@@ -59,7 +54,7 @@ Cette clef est utilisée pour vérifier le hash des mots de passe des comptes Ca
 
 La rubrique _MAIL_ doit être renseignée avec les informations de votre serveur de mail
 
-## Installation
+## Installation Linux Debian
 
 lancer
 `build_camap_docker.sh <DESTDIR>`
@@ -69,6 +64,27 @@ pour une installation de Camap dans ```DESTDIR```
 Renseigner le DNS ou votre fichier hosts avec les valeurs correspondante à la configuration.
 Pour une installation en local:
 ```127.0.0.1 camap api.camap```
+
+## Installation sous Windows
+
+Installer docker desktop
+
+Créer un répertoire Camap
+
+Dans ce répertoire:
+
+```git clone https://github.com/Mandrak-Kimigo/camap-hx.git```
+```git clone https://github.com/Mandrak-Kimigo/camap-ts.git```
+```git clone https://github.com/Mandrak-Kimigo/camap-docker.git```
+
+Copier ensuite depuis camap/camap-docker/:
+```*.Dockerfile``` dans ```camap```
+```docker-compose.yml``` dans ```camap```
+```.env``` dans ```camap/camap-ts```
+```config.xml``` dans ```camap/camap-hx```
+
+exécuter ```docker compose up -d --build```
+
 
 L'installation est complètement dockerisée, l'édition des sources nécessite de relancer le build des containers
 
