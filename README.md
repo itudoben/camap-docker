@@ -1,17 +1,5 @@
 # camap-docker
 
-## Utiliser les containers
-
-Les containers Camap sont utilisables en local.
-
-Renseignez votre fichier hosts avec les valeurs:
-
-```127.0.0.1 camap api.camap```
-
-Puis ```docker compose up -d```
-
-La configuration initiale se fait en accédant à https://camap/install
-
 # Construction des containers depuis les sources
 
 Script de construction des containers Camap
@@ -65,6 +53,10 @@ Renseigner le DNS ou votre fichier hosts avec les valeurs correspondante à la c
 Pour une installation en local:
 ```127.0.0.1 camap api.camap```
 
+exécuter ```docker compose up -d --build```
+
+Après l'installation, remonter une sauvegarde via mysqlworkbench ou myloader ou créer le compte admin via https://camap/install
+
 ## Installation sous Windows
 
 Installer docker desktop
@@ -83,10 +75,11 @@ Copier ensuite depuis camap/camap-docker/:
 ```.env``` dans ```camap/camap-ts```
 ```config.xml``` dans ```camap/camap-hx```
 
+Renseigner le DNS ou votre fichier hosts (c:\windows\system32\drivers\etc) avec les valeurs correspondante à la configuration.
+Pour une installation en local:
+```127.0.0.1 camap api.camap```
+
 exécuter ```docker compose up -d --build```
-
-
-L'installation est complètement dockerisée, l'édition des sources nécessite de relancer le build des containers
 
 Après l'installation, remonter une sauvegarde via mysqlworkbench ou myloader ou créer le compte admin via https://camap/install
 
