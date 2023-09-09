@@ -1,11 +1,3 @@
-LABEL org.opencontainers.image.authors="InterAMAP44 inter@amap44.org"
-LABEL org.opencontainers.image.vendor="InterAMAP 44"
-LABEL org.opencontainers.image.source="https://github.com/Mandrak-Kimigo/camap-docker"
-LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
-LABEL description="Camap nest-camap container"
-LABEL org.opencontainers.image.title="nest-camap"
-LABEL org.opencontainers.image.description="Container 2/3 de l'application Camap (camap-ts)"
-
 FROM node:16.20.1-bullseye-slim as builder
 
 ENV FRONT_URL=https://api.camap
@@ -38,6 +30,14 @@ RUN npm prune --production
 COPY --chown=interamap:interamap ./camap-ts/scripts/ /srv/scripts
 
 FROM  node:20.3.1-bullseye-slim
+
+LABEL org.opencontainers.image.authors="InterAMAP44 inter@amap44.org"
+LABEL org.opencontainers.image.vendor="InterAMAP 44"
+LABEL org.opencontainers.image.source="https://github.com/Mandrak-Kimigo/camap-docker"
+LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
+LABEL description="Camap nest-camap container"
+LABEL org.opencontainers.image.title="nest-camap"
+LABEL org.opencontainers.image.description="Container 2/3 de l'application Camap (camap-ts)"
 
 RUN adduser --disabled-password --disabled-login --gecos "InterAMAP user" --home /home/interamap interamap
 

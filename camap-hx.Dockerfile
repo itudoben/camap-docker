@@ -1,3 +1,5 @@
+FROM node:20.3.1-bullseye-slim
+
 LABEL org.opencontainers.image.authors="InterAMAP44 inter@amap44.org"
 LABEL org.opencontainers.image.vendor="InterAMAP 44"
 LABEL org.opencontainers.image.source="https://github.com/Mandrak-Kimigo/camap-docker"
@@ -6,8 +8,6 @@ LABEL description="Camap neko-camap container"
 LABEL org.opencontainers.image.title="neko-camap"
 LABEL org.opencontainers.image.description="Container 1/3 de l'application Camap (camap-hx)"
 
-
-FROM node:20.3.1-bullseye-slim
 RUN apt-get update && \
     apt-get install -y git curl imagemagick apache2 haxe libapache2-mod-neko libxml-twig-perl libutf8-all-perl procps && \
     apt-get clean
