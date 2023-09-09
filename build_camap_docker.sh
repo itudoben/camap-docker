@@ -12,7 +12,7 @@ DESTDIR=$1
 ls $DESTDIR
 res=$?
 
-if [$res -eq 2]
+if [ $res -eq 2 ]
 then
         mkdir $DESTDIR
         $res2=$?
@@ -23,7 +23,7 @@ then
         else
                 echo "Création de "$DESTDIR" OK"
         fi
-elif [$res -eq 0]
+elif [ $res -eq 0 ]
         then
                 echo "Le répertoire "$DESTDIR" existe déjà."
                 echo "Installation"
