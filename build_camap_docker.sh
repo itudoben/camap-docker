@@ -23,8 +23,7 @@ then
         else
                 echo "Création de "$DESTDIR" OK"
         fi
-else
-         if [$res -eq 0]
+elif [$res -eq 0]
         then
                 echo "Le répertoire "$DESTDIR" existe déjà."
                 echo "Installation"
@@ -46,6 +45,7 @@ echo "Copie des fichiers de configuration"
 echo "config.xml"
 cp $SRCDIR/config.xml $DESTDIR/camap-hx/config.xml
 [ $? -ne 0 ] && echo "Erreur d'installation" && exit -3
+
 echo ".env"
 cp $SRCDIR/.env $DESTDIR/camap-ts/.env
 [ $? -ne 0 ] && echo "Erreur d'installation" && exit -4
@@ -62,5 +62,6 @@ echo "Build des containers..."
 echo "vous pouvez aller prendre un café"
 cd $DESTDIR
 docker compose build
+
 echo "Vous pouvez maintenant démarrer les containers"
 echo "à l'aide de la commande: docker compose up -d"
