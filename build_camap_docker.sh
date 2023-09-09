@@ -27,11 +27,11 @@ elif [ $res -eq 0 ]
         then
                 echo "Le répertoire "$DESTDIR" existe déjà."
                 echo "Installation"
-        else
-                echo "Erreur"
-                exit 1
-        fi
-if
+else
+        echo "Erreur"
+        exit 1
+fi
+
 cd $DESTDIR
 echo "Installation des sources de camap-hx"
 git clone https://github.com/Mandrak-Kimigo/camap-hx.git
