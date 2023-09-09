@@ -23,14 +23,15 @@ then
         else
                 echo "Création de "$DESTDIR" OK"
         fi
-else if [$res -eq 0]
-     then
+else
+         if [$res -eq 0]
+        then
                 echo "Le répertoire "$DESTDIR" existe déjà."
                 echo "Installation"
-     else
-        echo "Erreur"
-        exit 1
-     fi
+        else
+                echo "Erreur"
+                exit 1
+        fi
 if
 cd $DESTDIR
 echo "Installation des sources de camap-hx"
