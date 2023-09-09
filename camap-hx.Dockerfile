@@ -1,6 +1,6 @@
 LABEL org.opencontainers.image.authors="InterAMAP44 inter@amap44.org"
 LABEL org.opencontainers.image.vendor="InterAMAP 44"
-LABEL org.opencontainers.image.source="https://github.com/CAMAP-APP/camap-docker"
+LABEL org.opencontainers.image.source="https://github.com/Mandrak-Kimigo/camap-docker"
 LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
 LABEL description="Camap neko-camap container"
 LABEL org.opencontainers.image.title="neko-camap"
