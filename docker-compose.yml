@@ -1,0 +1,61 @@
+version: "2"
+
+services:
+  mysql:
+    build:
+      context: .
+      dockerfile: mysql.Dockerfile
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=db-camap
+      - MYSQL_USER=docker
+      - MYSQL_PASSWORD=docker
+    container_name: mysql
+    networks:
+      camap-net:
+    ports:
+      - "127.0.0.1:3306:3306"
+    volumes:
+      - database:/var/lib/mysql
+#     - ./mysql/dumps/:/root/dumps
+
+  nest-camap:
+    depends_on:
+      - mysql
+    container_name: nest-camap
+    build:
+        context: .
+        dockerfile: camap-ts.Dockerfile
+    env_file: camap-ts/.env
+    networks:
+      camap-net:
+    ports:
+      - "127.0.0.1:3010:3010"
+    expose:
+      - 6007
+    working_dir: /srv/packages/api-core
+    command: npm run start:prod
+
+  neko-camap:
+    build:
+        context: .
+        dockerfile: camap-hx.Dockerfile
+    container_name: neko-camap
+    networks:
+      camap-net:
+    ports:
+      - "127.0.0.1:80:80"
+    depends_on:
+      - mysql
+      - nest-camap
+
+volumes:
+  database:
+
+networks:
+  camap-net:
+    ipam:
+      config:
+        - subnet: 192.168.3.0/24
+          gateway: 192.168.3.254
+          ip_range: 192.168.3.0/24
