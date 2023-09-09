@@ -49,7 +49,7 @@ La rubrique _MAIL_ doit être renseignée avec les informations de votre serveur
 lancer
 `build_camap_docker.sh <DESTDIR>`
 
-pour une installation de Camap dans <DESTDIR>
+pour une installation de Camap dans ```DESTDIR```
 
 L'installation est complètement dockerisée, l'édition des sources nécessite de relancer le build des containers
 
