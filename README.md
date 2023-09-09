@@ -1,7 +1,9 @@
 # camap-docker
 
+
 Script de construction des containers Camap
 
+git clone https://github.com/Mandrak-Kimigo/camap-docker.git
 
 ## Prérequis
 
@@ -50,6 +52,10 @@ lancer
 `build_camap_docker.sh <DESTDIR>`
 
 pour une installation de Camap dans ```DESTDIR```
+
+Renseigner le DNS ou votre fichier hosts avec les valeurs correspondante à la configuration.
+Pour une installation en local:
+```127.0.0.1 camap api.camap```
 
 L'installation est complètement dockerisée, l'édition des sources nécessite de relancer le build des containers
 

@@ -1,7 +1,7 @@
 version: "2"
 
 services:
-  mysql:
+  loc-mysql:
     build:
       context: .
       dockerfile: mysql.Dockerfile
@@ -10,25 +10,25 @@ services:
       - MYSQL_DATABASE=db-camap
       - MYSQL_USER=docker
       - MYSQL_PASSWORD=docker
-    container_name: mysql
+    container_name: loc-mysql
     networks:
-      camap-net:
+      loc-camap-net:
     ports:
       - "127.0.0.1:3306:3306"
     volumes:
       - database:/var/lib/mysql
 #     - ./mysql/dumps/:/root/dumps
 
-  nest-camap:
+  nest-loc-camap:
     depends_on:
-      - mysql
-    container_name: nest-camap
+      - loc-mysql
+    container_name: nest-loc-camap
     build:
         context: .
         dockerfile: camap-ts.Dockerfile
     env_file: camap-ts/.env
     networks:
-      camap-net:
+      loc-camap-net:
     ports:
       - "127.0.0.1:3010:3010"
     expose:
@@ -36,26 +36,26 @@ services:
     working_dir: /srv/packages/api-core
     command: npm run start:prod
 
-  neko-camap:
+  neko-loc-camap:
     build:
         context: .
         dockerfile: camap-hx.Dockerfile
-    container_name: neko-camap
+    container_name: neko-loc-camap
     networks:
-      camap-net:
+      loc-camap-net:
     ports:
       - "127.0.0.1:80:80"
     depends_on:
-      - mysql
-      - nest-camap
+      - loc-mysql
+      - nest-loc-camap
 
 volumes:
   database:
 
 networks:
-  camap-net:
+  loc-camap-net:
     ipam:
       config:
-        - subnet: 192.168.3.0/24
-          gateway: 192.168.3.254
-          ip_range: 192.168.3.0/24
+        - subnet: 192.168.100.0/24
+          gateway: 192.168.100.254
+          ip_range: 192.168.100.0/24
