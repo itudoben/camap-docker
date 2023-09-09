@@ -1,10 +1,10 @@
 FROM node:16.20.1-bullseye-slim as builder
 
-ENV FRONT_URL=https://api.camap
-ENV FRONT_GRAPHQL_URL=${FRONT_URL}/graphql
-ENV CAMAP_HOST=https://camap
-ENV MAPBOX_KEY=pk.eyJ1IjoiYnViYXIiLCJhIjoiY2xhaTJoaDMxMGhsODNwbXpveHI5cmRvYSJ9.EamPFVWWXhGRzJX5SOU0xg
-ENV THEME_ID=default
+#ENV FRONT_URL=http://api.camap:3010
+#ENV FRONT_GRAPHQL_URL=${FRONT_URL}/graphql
+#ENV CAMAP_HOST=http://camap
+#ENV MAPBOX_KEY=pk.eyJ1IjoiYnViYXIiLCJhIjoiY2xhaTJoaDMxMGhsODNwbXpveHI5cmRvYSJ9.EamPFVWWXhGRzJX5SOU0xg
+#ENV THEME_ID=default
 
 RUN apt-get update && apt-get install -y \
     g++ \
