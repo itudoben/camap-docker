@@ -8,16 +8,30 @@ then
      exit 0
 fi
 DESTDIR=$1
-mkdir $DESTDIR
-#ls $DESTDIR
+
+ls $DESTDIR
 res=$?
-if [ $res -ne 0 ] 
+
+if [$res -eq 2]
 then
-        echo "Impossible de créer le répertoide d'installation"
+        mkdir $DESTDIR
+        $res2=$?
+        if [ $res2 -ne 0 ] 
+        then
+                echo "Impossible de créer le répertoide d'installation"
+                exit 1
+        else
+                echo "Création de "$DESTDIR" OK"
+        fi
+else if [$res -eq 0]
+     then
+                echo "Le répertoire "$DESTDIR" existe déjà."
+                echo "Installation"
+     else
+        echo "Erreur"
         exit 1
-else
-        echo "Création de "$DESTDIR" OK"
-fi
+     fi
+if
 cd $DESTDIR
 echo "Installation des sources de camap-hx"
 git clone https://github.com/Mandrak-Kimigo/camap-hx.git
@@ -42,6 +56,7 @@ cp $SRCDIR/camap-hx.Dockerfile $SRCDIR/camap-ts.Dockerfile $SRCDIR/mysql.Dockerf
 echo "docker-compose.yml"
 cp $SRCDIR/docker-compose.yml $DESTDIR/docker-compose.yml
 [ $? -ne 0 ] && echo "Erreur d'installation" && exit -6
+
 echo "Build des containers..."
 echo "vous pouvez aller prendre un café"
 cd $DESTDIR
