@@ -1,5 +1,18 @@
 # camap-docker
 
+## Utiliser les containers
+
+Les containers Camap sont utilisables en local.
+
+Renseignez votre fichier hosts avec les valeurs:
+
+```127.0.0.1 camap api.camap```
+
+Puis ```docker compose up -d```
+
+La configuration initiale se fait avec en accédant à https://camap/install
+
+# Construction des containers depuis les sources
 
 Script de construction des containers Camap
 
