@@ -1,3 +1,12 @@
+LABEL org.opencontainers.image.authors="InterAMAP44 inter@amap44.org"
+LABEL org.opencontainers.image.vendor="InterAMAP 44"
+LABEL org.opencontainers.image.source="https://github.com/CAMAP-APP/camap-docker"
+LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
+LABEL description="Camap mysql container"
+LABEL org.opencontainers.image.title="mysql"
+LABEL org.opencontainers.image.description="Container 3/3 de l'application Camap (mysql)"
+
+
 FROM mysql:5.7-debian
 COPY ./camap-ts/docker-compose/mysql/my.cnf /etc/mysql/conf.d/
 ENV TZ="Europe/Paris" 
