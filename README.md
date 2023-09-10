@@ -68,21 +68,22 @@ Créer un répertoire Camap
 
 Dans ce répertoire:
 
-```git clone https://github.com/Mandrak-Kimigo/camap-hx.git```
+- ```git clone https://github.com/Mandrak-Kimigo/camap-hx.git```
 
-```git clone https://github.com/Mandrak-Kimigo/camap-ts.git```
+- ```git clone https://github.com/Mandrak-Kimigo/camap-ts.git```
 
-```git clone https://github.com/Mandrak-Kimigo/camap-docker.git```
+- ```git clone https://github.com/Mandrak-Kimigo/camap-docker.git```
 
 
 Copier ensuite depuis camap/camap-docker/:
-```*.Dockerfile``` dans ```camap```
 
-```docker-compose.yml``` dans ```camap```
+- ```*.Dockerfile``` dans ```camap```
 
-```.env``` dans ```camap/camap-ts```
+- ```docker-compose.yml``` dans ```camap```
 
-```config.xml``` dans ```camap/camap-hx```
+- ```.env``` dans ```camap/camap-ts```
+
+- ```config.xml``` dans ```camap/camap-hx```
 
 Renseigner le DNS ou votre fichier hosts (c:\windows\system32\drivers\etc) avec les valeurs correspondante à la configuration.
 Pour une installation en local:
