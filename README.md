@@ -1,5 +1,7 @@
 # camap-docker
 
+### ATTENTION: non fonctionnel actuellement sans installer un reverse proxy pour assurer le https (pb de cookies cross-site)
+
 # Construction des containers depuis les sources
 
 Script de construction des containers Camap
@@ -8,7 +10,7 @@ git clone https://github.com/Mandrak-Kimigo/camap-docker.git
 
 ## Prérequis
 
-La présente documentation a été testée sur Debian 11
+La présente documentation a été testée sur Debian 11 & Windows 11
 
 **Installer docker & docker-compose**
 
