@@ -53,6 +53,7 @@ pour une installation de Camap dans ```DESTDIR```
 
 Renseigner le DNS ou votre fichier hosts avec les valeurs correspondante à la configuration.
 Pour une installation en local:
+
 ```127.0.0.1 camap api.camap```
 
 exécuter ```docker compose up -d --build```
@@ -68,17 +69,24 @@ Créer un répertoire Camap
 Dans ce répertoire:
 
 ```git clone https://github.com/Mandrak-Kimigo/camap-hx.git```
+
 ```git clone https://github.com/Mandrak-Kimigo/camap-ts.git```
+
 ```git clone https://github.com/Mandrak-Kimigo/camap-docker.git```
+
 
 Copier ensuite depuis camap/camap-docker/:
 ```*.Dockerfile``` dans ```camap```
+
 ```docker-compose.yml``` dans ```camap```
+
 ```.env``` dans ```camap/camap-ts```
+
 ```config.xml``` dans ```camap/camap-hx```
 
 Renseigner le DNS ou votre fichier hosts (c:\windows\system32\drivers\etc) avec les valeurs correspondante à la configuration.
 Pour une installation en local:
+
 ```127.0.0.1 camap api.camap```
 
 exécuter ```docker compose up -d --build```
