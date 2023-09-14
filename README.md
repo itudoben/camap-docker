@@ -2,6 +2,8 @@
 
 __ATTENTION: non fonctionnel actuellement sans installer un reverse proxy pour assurer le https (pb de cookies cross-site)__
 
+__TODO:__ Intégrer Traefik
+
 # Construction des containers depuis les sources
 
 Script de construction des containers Camap
