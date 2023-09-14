@@ -14,9 +14,15 @@ La présente documentation a été testée sur Debian 11 & Windows 11
 
 **Installer docker & docker-compose**
 
+_Sur Debian 11_
+
 ```apt-get install docker-buildx-plugin docker-ce docker-ce-cli docker-compose-plugin```
 
 https://docs.docker.com/engine/install/debian/
+
+_Sur Windows_
+
+Installer (Docker Desktop)[https://www.docker.com/products/docker-desktop/]
 
 ## Configuration
 
