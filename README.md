@@ -22,7 +22,7 @@ https://docs.docker.com/engine/install/debian/
 
 _Sur Windows_
 
-Installer (Docker Desktop)[https://www.docker.com/products/docker-desktop/]
+Installer [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 ## Configuration
 
