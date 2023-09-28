@@ -29,7 +29,7 @@ Installer [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 ## Configuration
 
-### La configuration du container neko-camap se fait dans __config.xml__ de <DESTDIR>/camap-hx
+### La configuration du container neko-camap se fait dans __config.xml__ de $DESTDIR/camap-hx
 
 - ```key``` doit avoir la même valeur que ```CAMAP_KEY``` dans camap-ts/.env
 Cette clef est utilisée pour vérifier le hash des mots de passe des comptes Camap
@@ -40,7 +40,7 @@ Cette clef est utilisée pour vérifier le hash des mots de passe des comptes Ca
 
 - ```mapbox_server_token``` contient la clef pour les fonctions de géolocalisation, à créer sur mapbox.com (gratuit jusqu'à 100.000 requetes par mois)
 
-### La configuration du container nest-camap se fait dans __.env__ de <DESTDIR>/camap-ts
+### La configuration du container nest-camap se fait dans __.env__ de $DESTDIR/camap-ts
 
 - ```CAMAP_KEY``` doit avoir la même valeur que ```key``` dans camap-hx/config.xml
 Cette clef est utilisée pour vérifier le hash des mots de passe des comptes Camap
@@ -55,8 +55,6 @@ Cette clef est utilisée pour vérifier le hash des mots de passe des comptes Ca
 
 La rubrique _MAIL_ doit être renseignée avec les informations de votre serveur de mail
 
-#### Modifier les lignes 3 à 7 de __camap-ts.Dockerfile__ dans DESTDIR avec les valeurs indiquées dans __.env__
-
 ## Installation Linux Debian
 
 lancer
@@ -68,6 +66,8 @@ Renseigner le DNS ou votre fichier hosts avec les valeurs correspondante à la c
 Pour une installation en local:
 
 ```127.0.0.1 camap.localdomain api.camap.localdomain```
+
+#### Modifier les lignes 3 à 7 de __camap-ts.Dockerfile__ dans $DESTDIR avec les valeurs indiquées dans __.env__
 
 exécuter ```docker compose up -d --build```
 
@@ -103,6 +103,8 @@ Copier ensuite depuis camap/camap-docker/:
 Créer le répertoire traefik/config dans camap et copier:
 
 - ```traefik/config/dynamic.yml``` dans ```camap/traefik/config/dynamic.yml```
+
+#### Modifier les lignes 3 à 7 de __camap-ts.Dockerfile__ dans Camap avec les valeurs indiquées dans __camap-ts/.env__
 
 Renseigner le DNS ou votre fichier hosts (c:\windows\system32\drivers\etc) avec les valeurs correspondante à la configuration.
 Pour une installation en local:
