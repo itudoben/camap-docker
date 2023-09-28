@@ -83,7 +83,7 @@ services:
     working_dir: /srv/packages/api-core
     command: npm run start:prod
     labels:
-      - "traefik.http.routers.nest-loc-camap.rule=Host(`api.camap`)"
+      - "traefik.http.routers.nest-loc-camap.rule=Host(`api.camap.localdomain`)"
       - "traefik.http.services.nest-loc-camap.loadbalancer.server.port=3010"
       - "traefik.http.routers.nest-loc-camap.tls=true"
       - "traefik.http.routers.nest-loc-camap.middlewares=serviceheaders"
@@ -102,7 +102,7 @@ services:
       - loc-mysql
       - nest-loc-camap
     labels:
-      - "traefik.http.routers.neko-loc-camap.rule=Host(`camap`)"
+      - "traefik.http.routers.neko-loc-camap.rule=Host(`camap.localdomain`)"
       - "traefik.http.services.neko-loc-camap.loadbalancer.server.port=80"
       - "traefik.http.routers.neko-loc-camap.entrypoints=websecure"
       - "traefik.http.routers.neko-loc-camap.tls=true"

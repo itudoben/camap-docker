@@ -1,8 +1,19 @@
 # camap-docker
 
-__ATTENTION: non fonctionnel actuellement sans installer un reverse proxy pour assurer le https (pb de cookies cross-site)__
+__ATTENTION: Les menus TS ne fonctionnent pas (pb cookies cross-site)
 
-__TODO:__ Intégrer Traefik
+__TODO:__ Régler pb de cookie cross-site
+
+```
+Because a cookie’s SameSite attribute was not set or is invalid, it defaults to SameSite=Lax, which prevents the cookie from being sent in a cross-site request. This behavior protects user data from accidentally leaking to third parties and cross-site request forgery.
+Resolve this issue by updating the attributes of the cookie:
+Specify SameSite=None and Secure if the cookie should be sent in cross-site requests. This enables third-party use.
+Specify SameSite=Strict or SameSite=Lax if the cookie should not be sent in cross-site requests.
+1 cookie
+Nom	Domaine & Chemin d'accès
+sid	api.camap/
+```
+
 
 # Construction des containers depuis les sources
 
