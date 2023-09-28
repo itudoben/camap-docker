@@ -1,12 +1,8 @@
 # camap-docker
 
-__ATTENTION: build_camap_docker.sh n'est pas à jour
-
 __TODO:__ 
 
 - Certificat valide
-
-- build_camap_docker.sh
 
 
 # Construction des containers depuis les sources

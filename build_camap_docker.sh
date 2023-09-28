@@ -35,28 +35,33 @@ fi
 cd $DESTDIR
 echo "Installation des sources de camap-hx"
 git clone https://github.com/Mandrak-Kimigo/camap-hx.git
-[ $? -ne 0 ] && echo "Erreur d'installation" && exit -1
+[ $? -ne 0 ] && echo "Erreur d'installation -1" && exit -1
 
 echo "Installation des sources de camap-ts"
 git clone https://github.com/Mandrak-Kimigo/camap-ts.git
-[ $? -ne 0 ] && echo "Erreur d'installation" && exit -2
+[ $? -ne 0 ] && echo "Erreur d'installation -2" && exit -2
 
 echo "Copie des fichiers de configuration"
 echo "config.xml"
 cp $SRCDIR/config.xml $DESTDIR/camap-hx/config.xml
-[ $? -ne 0 ] && echo "Erreur d'installation" && exit -3
+[ $? -ne 0 ] && echo "Erreur d'installation -3" && exit -3
 
 echo ".env"
 cp $SRCDIR/.env $DESTDIR/camap-ts/.env
-[ $? -ne 0 ] && echo "Erreur d'installation" && exit -4
+[ $? -ne 0 ] && echo "Erreur d'installation -4" && exit -4
 
-echo "camap-hx.Dockerfile camap-ts.Dockerfile mysql.Dockerfile"
-cp $SRCDIR/camap-hx.Dockerfile $SRCDIR/camap-ts.Dockerfile $SRCDIR/mysql.Dockerfile $DESTDIR
-[ $? -ne 0 ] && echo "Erreur d'installation" && exit -5
+echo "camap-hx.Dockerfile camap-ts.Dockerfile mysql.Dockerfile traekif.yml"
+cp $SRCDIR/camap-hx.Dockerfile $SRCDIR/camap-ts.Dockerfile $SRCDIR/mysql.Dockerfile $SRCDIR/traefik.yml $DESTDIR
+[ $? -ne 0 ] && echo "Erreur d'installation -5" && exit -5
 
 echo "docker-compose.yml"
 cp $SRCDIR/docker-compose.yml $DESTDIR/docker-compose.yml
-[ $? -ne 0 ] && echo "Erreur d'installation" && exit -6
+[ $? -ne 0 ] && echo "Erreur d'installation -6" && exit -6
+
+echo "copie de traefik/config"
+cp -rp $SRCDIR/traefik $DESTDIR
+[ $? -ne 0 ] && echo "Erreur d'installation -7" && exit -7
+
 
 echo "Build des containers..."
 echo "vous pouvez aller prendre un café"
