@@ -73,7 +73,7 @@ pour une installation de Camap dans ```DESTDIR```
 Renseigner le DNS ou votre fichier hosts avec les valeurs correspondante à la configuration.
 Pour une installation en local:
 
-```127.0.0.1 camap api.camap```
+```127.0.0.1 camap.localdomain api.camap.localdomain```
 
 exécuter ```docker compose up -d --build```
 
