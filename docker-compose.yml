@@ -85,6 +85,7 @@ services:
     labels:
       - "traefik.http.routers.nest-loc-camap.rule=Host(`api.camap.localdomain`)"
       - "traefik.http.services.nest-loc-camap.loadbalancer.server.port=3010"
+      - "traefik.http.routers.nest-loc-camap.entrypoints=websecure"
       - "traefik.http.routers.nest-loc-camap.tls=true"
       - "traefik.http.routers.nest-loc-camap.middlewares=serviceheaders"
       
