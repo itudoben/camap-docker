@@ -24,7 +24,9 @@ services:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
       - ./traefik.yml:/traefik.yml 
-      - ./letsencrypt:/letsencrypt
+      - ./traefik/config:/etc/traefik/config
+      - ./ssl:/ssl
+      - ./logs:/logs
   
   loc-mysql:
     build:
@@ -62,7 +64,7 @@ services:
     labels:
       - "traefik.http.routers.nest-loc-camap.rule=Host(`api.camap`)"
       - "traefik.http.services.nest-loc-camap.loadbalancer.server.port=3010"
-    #  - "traefik.http.routers.nest-loc-camap.entrypoints=api"
+      - "traefik.http.routers.nest-loc-camap.entrypoints=https"
 
   neko-loc-camap:
     build:
@@ -79,7 +81,7 @@ services:
     labels:
       - "traefik.http.routers.neko-loc-camap.rule=Host(`camap`)"
       - "traefik.http.services.neko-loc-camap.loadbalancer.server.port=80"
-    #  - "traefik.http.routers.neko-loc-camap.entrypoints=http,https"
+      - "traefik.http.routers.neko-loc-camap.entrypoints=https"
 
 volumes:
   database:
