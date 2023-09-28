@@ -55,7 +55,7 @@ Cette clef est utilisée pour vérifier le hash des mots de passe des comptes Ca
 
 La rubrique _MAIL_ doit être renseignée avec les informations de votre serveur de mail
 
-## Modifier les lignes 3 à 7 de __camap-ts.Dockerfile__ de <DESTDIR> avec les valeurs indiquées dans __.env__
+#### Modifier les lignes 3 à 7 de __camap-ts.Dockerfile__ de <DESTDIR> avec les valeurs indiquées dans __.env__
 
 ## Installation Linux Debian
 
