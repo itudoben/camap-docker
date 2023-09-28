@@ -4,8 +4,6 @@ api:
 entryPoints:
   http:
     address: ":80"
-  #api:
-    address: ":3010"
   https:
     address: ":443"
     http:
