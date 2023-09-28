@@ -37,6 +37,15 @@ services:
       - "traefik.http.routers.http-catchall.middlewares=redirect-to-https"
       # middleware redirect
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+         
+      # CROS error
+      - "traefik.http.middlewares.serviceheaders.headers.accesscontrolalloworiginlist=https://camap,https://api.camap" 
+      - "traefik.http.middlewares.serviceheaders.headers.accesscontrolallowmethods=PUT,GET,POST,HEAD,PATCH,DELETE,OPTION"
+      - "traefik.http.middlewares.serviceheaders.headers.accesscontrolallowcredentials=true"
+      - "traefik.http.middlewares.serviceheaders.headers.accesscontrolallowheaders=x-cavea-url,authorization,x-requested-with,accept-api-version,content-type,cookie"
+      - "traefik.http.middlewares.serviceheaders.headers.accesscontrolmaxage=100"
+      - "traefik.http.middlewares.serviceheaders.headers.addvaryheader=true"
+      - "traefik.http.routers.service.middlewares=serviceheaders"
   
   loc-mysql:
     build:
@@ -76,13 +85,9 @@ services:
     labels:
       - "traefik.http.routers.nest-loc-camap.rule=Host(`api.camap`)"
       - "traefik.http.services.nest-loc-camap.loadbalancer.server.port=3010"
-#     - "traefik.http.routers.nest-loc-camap.entrypoints=websecure"
-      - "traefik.http.routers.nest-loc.tls=true"
-      - "traefik.http.middlewares.testheader.headers.accesscontrolallowmethods=GET,OPTIONS,PUT"
-      - "traefik.http.middlewares.testheader.headers.accesscontrolallowheaders=*"
-      - "traefik.http.middlewares.testheader.headers.accesscontrolalloworiginlist=https://api.camap,https://camap"
-      - "traefik.http.middlewares.testheader.headers.accesscontrolmaxage=100"
-      - "traefik.http.middlewares.testheader.headers.addvaryheader=true"
+      - "traefik.http.routers.nest-loc-camap.tls=true"
+      - "traefik.http.routers.nest-loc-camap.middlewares=serviceheaders"
+      
 
   neko-loc-camap:
     build:
@@ -100,14 +105,9 @@ services:
       - "traefik.http.routers.neko-loc-camap.rule=Host(`camap`)"
       - "traefik.http.services.neko-loc-camap.loadbalancer.server.port=80"
       - "traefik.http.routers.neko-loc-camap.entrypoints=websecure"
-      - "traefik.http.routers.neko-loc.tls=true" 
-      - "traefik.http.routers.nest-loc.tls=true"
-      - "traefik.http.middlewares.testheader.headers.accesscontrolallowmethods=GET,OPTIONS,PUT"
-      - "traefik.http.middlewares.testheader.headers.accesscontrolallowheaders=*"
-      - "traefik.http.middlewares.testheader.headers.accesscontrolalloworiginlist=https://api.camap,https://camap"
-      - "traefik.http.middlewares.testheader.headers.accesscontrolmaxage=100"
-      - "traefik.http.middlewares.testheader.headers.addvaryheader=true"
-
+      - "traefik.http.routers.neko-loc-camap.tls=true"
+      - "traefik.http.routers.neko-loc-camap.middlewares=serviceheaders"
+      
 volumes:
   database:
 
@@ -118,4 +118,3 @@ volumes:
 #        - subnet: 192.168.100.0/24
 #          gateway: 192.168.100.254
 #          ip_range: 192.168.100.0/24
-
