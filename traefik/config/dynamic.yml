@@ -1,0 +1,4 @@
+tls:
+  certificates:
+    - certFile: /ssl/fullchain.pem
+      keyFile: /ssl/privkey.pem
