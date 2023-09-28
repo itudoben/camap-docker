@@ -113,9 +113,9 @@ Créer le répertoire traefik/config dans camap et copier:
 Renseigner le DNS ou votre fichier hosts (c:\windows\system32\drivers\etc) avec les valeurs correspondante à la configuration.
 Pour une installation en local:
 
-```127.0.0.1 camap api.camap```
+```127.0.0.1 camap.localdomain api.camap.localdomain```
 
 exécuter ```docker compose up -d --build```
 
-Après l'installation, remonter une sauvegarde via mysqlworkbench ou myloader ou créer le compte admin via https://camap/install
+Après l'installation, remonter une sauvegarde via mysqlworkbench ou myloader ou créer le compte admin via https://camap.localdomain/install
 
