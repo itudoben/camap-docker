@@ -14,6 +14,10 @@ entryPoints:
     address: ":443"
     http:
       tls: {}
+  api:
+    address: ":3010"
+    http:
+      tls: {}
  
 providers:
   docker:
