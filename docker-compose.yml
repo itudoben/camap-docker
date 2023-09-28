@@ -34,8 +34,8 @@ services:
     container_name: loc-mysql
     #networks:
     #  loc-camap-net:
-    ports:
-      - "127.0.0.1:3306:3306"
+    expose:
+      - 3306
     volumes:
       - database:/var/lib/mysql
 #     - ./mysql/dumps/:/root/dumps
@@ -50,10 +50,9 @@ services:
     env_file: camap-ts/.env
     #networks:
     #  loc-camap-net:
-    ports:
-      - "127.0.0.1:3010:3010"
     expose:
       - 6007
+      - 3010
     working_dir: /srv/packages/api-core
     command: npm run start:prod
     labels:
@@ -66,8 +65,8 @@ services:
     container_name: neko-loc-camap
     #networks:
     #  loc-camap-net:
-    ports:
-      - "127.0.0.1:80:80"
+    expose:
+      - 80
     depends_on:
       - loc-mysql
       - nest-loc-camap
