@@ -4,21 +4,16 @@ api:
 entryPoints:
   web:
     address: ":80"
-    http:
-      redirections:
-        entryPoint:
-          to: websecure
-          scheme: https
-          permanent: true
+  nest:
+    address: ":3010"
   websecure:
     address: ":443"
     http:
-      tls: {}
-  api:
-    address: ":3010"
-    http:
-      tls: {}
- 
+        tls: {}
+    
+  
+  
+  
 providers:
   docker:
     endpoint: "unix:///var/run/docker.sock"

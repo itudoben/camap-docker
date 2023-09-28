@@ -1,10 +1,10 @@
 FROM node:16.20.1-bullseye-slim as builder
 
-#ENV FRONT_URL=http://api.camap:3010
-#ENV FRONT_GRAPHQL_URL=${FRONT_URL}/graphql
-#ENV CAMAP_HOST=http://camap
-#ENV MAPBOX_KEY=pk.eyJ1IjoiYnViYXIiLCJhIjoiY2xhaTJoaDMxMGhsODNwbXpveHI5cmRvYSJ9.EamPFVWWXhGRzJX5SOU0xg
-#ENV THEME_ID=default
+ENV FRONT_URL=https://api.camap
+ENV FRONT_GRAPHQL_URL=${FRONT_URL}/graphql
+ENV CAMAP_HOST=https://camap
+ENV MAPBOX_KEY=to_create_at_mapbox.com
+ENV THEME_ID=default
 
 RUN apt-get update && apt-get install -y \
     g++ \
@@ -33,10 +33,10 @@ FROM  node:20.3.1-bullseye-slim
 
 LABEL org.opencontainers.image.authors="InterAMAP44 inter@amap44.org"
 LABEL org.opencontainers.image.vendor="InterAMAP 44"
-LABEL org.opencontainers.image.source="https://github.com/Mandrak-Kimigo/camap-docker"
+LABEL org.opencontainers.image.source="https://github.com/CAMAP-APP/camap-docker"
 LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
-LABEL description="Camap nest-camap container"
-LABEL org.opencontainers.image.title="nest-camap"
+LABEL description="Camap nest-loc-camap container"
+LABEL org.opencontainers.image.title="nest-loc-camap"
 LABEL org.opencontainers.image.description="Container 2/3 de l'application Camap (camap-ts)"
 
 RUN adduser --disabled-password --disabled-login --gecos "InterAMAP user" --home /home/interamap interamap

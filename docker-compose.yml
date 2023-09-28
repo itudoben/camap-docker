@@ -12,7 +12,7 @@ services:
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
-      - "--entrypoints.api.adress=:3010"
+      - "--entrypoints.nest.adress=:3010"
     
     ports:
       # The HTTP port
@@ -29,6 +29,14 @@ services:
       - ./traefik/config:/etc/traefik/config
       - ./ssl:/ssl
       - ./logs:/logs
+
+    labels:
+      # global redirect to https
+      - "traefik.http.routers.http-catchall.rule=hostregexp(`{host:.+}`)"
+      - "traefik.http.routers.http-catchall.entrypoints=web,nest"
+      - "traefik.http.routers.http-catchall.middlewares=redirect-to-https"
+      # middleware redirect
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
   
   loc-mysql:
     build:
@@ -68,7 +76,8 @@ services:
     labels:
       - "traefik.http.routers.nest-loc-camap.rule=Host(`api.camap`)"
       - "traefik.http.services.nest-loc-camap.loadbalancer.server.port=3010"
-      - "traefik.http.routers.nest-loc-camap.entrypoints=websecure"
+#      - "traefik.http.routers.nest-loc-camap.entrypoints=websecure"
+      - "traefik.http.routers.nest-loc.tls=true"
 
   neko-loc-camap:
     build:
@@ -86,6 +95,7 @@ services:
       - "traefik.http.routers.neko-loc-camap.rule=Host(`camap`)"
       - "traefik.http.services.neko-loc-camap.loadbalancer.server.port=80"
       - "traefik.http.routers.neko-loc-camap.entrypoints=websecure"
+      - "traefik.http.routers.neko-loc.tls=true" 
 
 volumes:
   database:
@@ -97,3 +107,4 @@ volumes:
 #        - subnet: 192.168.100.0/24
 #          gateway: 192.168.100.254
 #          ip_range: 192.168.100.0/24
+
