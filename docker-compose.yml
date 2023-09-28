@@ -1,6 +1,27 @@
 version: "2"
 
 services:
+  
+  reverse-proxy:
+    # The official v2 Traefik docker image
+    image: traefik:v2.10
+    # Enables the web UI and tells Traefik to listen to docker
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      # The HTTP port
+      - "80:80"
+      # The Web UI (enabled by --api.insecure=true)
+      - "8080:8080"
+    volumes:
+      # So that Traefik can listen to the Docker events
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik.yml:/traefik.yml 
+      - ./letsencrypt:/letsencrypt
+  
   loc-mysql:
     build:
       context: .
@@ -11,8 +32,8 @@ services:
       - MYSQL_USER=docker
       - MYSQL_PASSWORD=docker
     container_name: loc-mysql
-    networks:
-      loc-camap-net:
+    #networks:
+    #  loc-camap-net:
     ports:
       - "127.0.0.1:3306:3306"
     volumes:
@@ -27,35 +48,39 @@ services:
         context: .
         dockerfile: camap-ts.Dockerfile
     env_file: camap-ts/.env
-    networks:
-      loc-camap-net:
+    #networks:
+    #  loc-camap-net:
     ports:
       - "127.0.0.1:3010:3010"
     expose:
       - 6007
     working_dir: /srv/packages/api-core
     command: npm run start:prod
+    labels:
+      - "traefik.http.routers.nest-loc-camap.rule=Host(`nest-loc-camap.docker.localhost`)"
 
   neko-loc-camap:
     build:
         context: .
         dockerfile: camap-hx.Dockerfile
     container_name: neko-loc-camap
-    networks:
-      loc-camap-net:
+    #networks:
+    #  loc-camap-net:
     ports:
       - "127.0.0.1:80:80"
     depends_on:
       - loc-mysql
       - nest-loc-camap
+    labels:
+      - "traefik.http.routers.neko-loc-camap.rule=Host(`neko-loc-camap.docker.localhost`)"
 
 volumes:
   database:
 
-networks:
-  loc-camap-net:
-    ipam:
-      config:
-        - subnet: 192.168.100.0/24
-          gateway: 192.168.100.254
-          ip_range: 192.168.100.0/24
+#networks:
+#  loc-camap-net:
+#    ipam:
+#      config:
+#        - subnet: 192.168.100.0/24
+#          gateway: 192.168.100.254
+#          ip_range: 192.168.100.0/24

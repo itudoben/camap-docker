@@ -1,0 +1,28 @@
+api:
+  dashboard: true
+
+entryPoints:
+  http:
+    address: ":80"
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: amaury.cormier@gmail.com
+      storage: /letsencrypt/acme.json
+      httpChallenge:
+        entryPoint: http
+In this configuration file, we are setting up Traefik to listen on port 80 and to route traffic to Docker containers. We're also setting up Let's Encrypt to automatically issue SSL certificates for our domains.
+
+docker run -d -p 80:80 -p 8080:8080 \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v $PWD/traefik.yml:/traefik.yml \
+  -v $PWD/letsencrypt:/letsencrypt \
+  --network traefik \
+  --name traefik \
+  traefik:v2.10
