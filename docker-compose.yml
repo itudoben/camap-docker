@@ -39,7 +39,7 @@ services:
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
          
       # CROS error
-      - "traefik.http.middlewares.serviceheaders.headers.accesscontrolalloworiginlist=https://camap,https://api.camap" 
+      - "traefik.http.middlewares.serviceheaders.headers.accesscontrolalloworiginlist=https://camap.localdomain,https://api.camap.localdomain" 
       - "traefik.http.middlewares.serviceheaders.headers.accesscontrolallowmethods=PUT,GET,POST,HEAD,PATCH,DELETE,OPTION"
       - "traefik.http.middlewares.serviceheaders.headers.accesscontrolallowcredentials=true"
       - "traefik.http.middlewares.serviceheaders.headers.accesscontrolallowheaders=x-cavea-url,authorization,x-requested-with,accept-api-version,content-type,cookie"
