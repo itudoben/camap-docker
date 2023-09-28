@@ -45,8 +45,6 @@ Cette clef est utilisée pour vérifier le hash des mots de passe des comptes Ca
 - ```CAMAP_KEY``` doit avoir la même valeur que ```key``` dans camap-hx/config.xml
 Cette clef est utilisée pour vérifier le hash des mots de passe des comptes Camap
 
-- ```CAMAP_HOST``` contient l'url du frontal Camap (camap-hx)
-
 - ```FRONT_URL``` contient l'url du serveur nest (camap-ts)
 
 - ```FRONT_GRAPHQL_URL``` contient l'url de graphql (FRONT_URL/graphql)
