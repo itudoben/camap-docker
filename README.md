@@ -85,6 +85,8 @@ Dans ce répertoire:
 
 Copier ensuite depuis camap/camap-docker/:
 
+- ```traefik.yml``` dans ```camap```
+
 - ```*.Dockerfile``` dans ```camap```
 
 - ```docker-compose.yml``` dans ```camap```
@@ -92,6 +94,10 @@ Copier ensuite depuis camap/camap-docker/:
 - ```.env``` dans ```camap/camap-ts```
 
 - ```config.xml``` dans ```camap/camap-hx```
+
+Créer le répertoire traefik/config dans camap et copier:
+
+- ```traefik/config/dynamic.yml``` dans ```camap/traefik/config/dynamic.yml```
 
 Renseigner le DNS ou votre fichier hosts (c:\windows\system32\drivers\etc) avec les valeurs correspondante à la configuration.
 Pour une installation en local:

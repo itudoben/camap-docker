@@ -16,7 +16,7 @@
 	cachetpl="0"
 	key="BvA8wNG6H5Ruz69FfW3t"
 
-	camap_api="http://api.camap"
+	camap_api="https://api.camap"
 	camap_bridge_api="http://nest-loc-camap:3010"
 	
 	mapbox_server_token="to_create_at_mapbox.com"
