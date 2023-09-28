@@ -1,18 +1,12 @@
 # camap-docker
 
-__ATTENTION: Les menus TS ne fonctionnent pas (pb cookies cross-site)
+__ATTENTION: build_camap_docker.sh n'est pas à jour
 
-__TODO:__ Régler pb de cookie cross-site
+__TODO:__ 
 
-```
-Because a cookie’s SameSite attribute was not set or is invalid, it defaults to SameSite=Lax, which prevents the cookie from being sent in a cross-site request. This behavior protects user data from accidentally leaking to third parties and cross-site request forgery.
-Resolve this issue by updating the attributes of the cookie:
-Specify SameSite=None and Secure if the cookie should be sent in cross-site requests. This enables third-party use.
-Specify SameSite=Strict or SameSite=Lax if the cookie should not be sent in cross-site requests.
-1 cookie
-Nom	Domaine & Chemin d'accès
-sid	api.camap/
-```
+- Certificat valide
+
+- build_camap_docker.sh
 
 
 # Construction des containers depuis les sources
@@ -61,7 +55,11 @@ Cette clef est utilisée pour vérifier le hash des mots de passe des comptes Ca
 
 - ```FRONT_GRAPHQL_URL``` contient l'url de graphql (FRONT_URL/graphql)
 
+- ```MAPBOX_KEY``` contient la clef pour les fonctions de géolocalisation, à créer sur mapbox.com (gratuit jusqu'à 100.000 requetes par mois)
+
 La rubrique _MAIL_ doit être renseignée avec les informations de votre serveur de mail
+
+## Modifier les lignes 3 à 7 de __camap-ts.Dockerfile__ de <DESTDIR> avec les valeurs indiquées dans __.env__
 
 ## Installation Linux Debian
 
