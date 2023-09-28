@@ -12,7 +12,7 @@ entryPoints:
 providers:
   docker:
     endpoint: "unix:///var/run/docker.sock"
-    exposedByDefault: false
+    exposedByDefault: true
 
 certificatesResolvers:
   letsencrypt:
@@ -21,3 +21,7 @@ certificatesResolvers:
       storage: /letsencrypt/acme.json
       httpChallenge:
         entryPoint: http
+
+accessLog: {}
+log:
+  level: debug
