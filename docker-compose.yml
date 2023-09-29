@@ -13,6 +13,11 @@ services:
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
       - "--entrypoints.nest.adress=:3010"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+      - "--certificatesresolvers.myresolver.acme.email=inter@amap44.org"
+      - "--certificatesresolvers.myresolver.acme.storage=/acme.json"
+    ports:
     
     ports:
       # The HTTP port
