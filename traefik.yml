@@ -22,10 +22,10 @@ providers:
     watch: true
   
 certificatesResolvers:
-  myresolver:
+  le:
     acme:
       email: inter@amap44.org
-      storage: /etc/traefik/config/ssl/acme.json
+      storage: /ssl/acme.json
       httpChallenge:
         # used during the challenge
         entryPoint: web
@@ -34,5 +34,5 @@ certificatesResolvers:
 
 
 accessLog:
-  #level: debug
+  level: debug
   filePath: "/var/log/traefik/traefik.log"

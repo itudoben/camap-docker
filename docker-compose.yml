@@ -13,11 +13,13 @@ services:
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
       - "--entrypoints.nest.adress=:3010"
-      - "--certificatesresolvers.myresolver.acme.httpchallenge=true"
-      - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoints=web"
-      - "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
-      - "--certificatesresolvers.myresolver.acme.email=inter@amap44.org"
-      - "--certificatesresolvers.myresolver.acme.storage=/etc/traefik/config/ssl/acme.json"
+      # Create the certificate resolver "le" for Let's Encrypt, uses the environment variable EMAIL
+      #- "--certificatesresolvers.le.acme.email=inter@amap44.org"
+      # Store the Let's Encrypt certificates in the mounted volume
+      #- "--certificatesresolvers.le.acme.storage=/ssl/acme.json"
+      # Use the TLS Challenge for Let's Encrypt
+      #- "--certificatesresolvers.le.acme.httpchallenge=true"
+      #- "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
     
     ports:
       # The HTTP port
@@ -32,9 +34,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./traefik.yml:/traefik.yml 
       - ./traefik/config:/etc/traefik/config
-      - ./letsencrypt/acme.json:/acme.json
       - ./logs:/var/log/traefik
-      - ./ssl:/etc/traefik/config/ssl
+      - ssl:/ssl
       
 
     labels:
@@ -95,7 +96,7 @@ services:
       - "traefik.http.routers.nest-loc-camap.entrypoints=websecure"
       - "traefik.http.routers.nest-loc-camap.tls=true"
       - "traefik.http.routers.nest-loc-camap.middlewares=serviceheaders"
-      - "traefik.http.routers.nest-loc-camap.certresolver=myresolver"
+      - "traefik.http.routers.nest-loc-camap.tls.certresolver=le"
       - "traefik.http.routers.nest-loc-camap.tls.domains[0].main=localdomain"
       - "traefik.http.routers.nest-loc-camap.tls.domains[0].sans=*.localdomain"
       
@@ -118,11 +119,12 @@ services:
       - "traefik.http.routers.neko-loc-camap.entrypoints=websecure"
       - "traefik.http.routers.neko-loc-camap.tls=true"
       - "traefik.http.routers.neko-loc-camap.middlewares=serviceheaders"
-      - "traefik.http.routers.neko-loc-camap.certresolver=myresolver"
+      - "traefik.http.routers.neko-loc-camap.tls.certresolver=le"
       - "traefik.http.routers.neko-loc-camap.tls.domains[0].main=localdomain"
       - "traefik.http.routers.neko-loc-camap.tls.domains[0].sans=*.localdomain"      
 volumes:
   database:
+  ssl:
 
 #networks:
 #  loc-camap-net:
