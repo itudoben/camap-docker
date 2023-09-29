@@ -25,7 +25,7 @@ certificatesResolvers:
   myresolver:
     acme:
       email: inter@amap44.org
-      storage: acme.json
+      storage: /etc/traefik/config/ssl/acme.json
       httpChallenge:
         # used during the challenge
         entryPoint: web
