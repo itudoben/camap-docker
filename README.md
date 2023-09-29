@@ -4,6 +4,12 @@ Le package camap-docker permet une installation simplifiée de Camap sur une mac
 
 A noter que l'architecture de production déployée par l'InterAMAP44 diffère, elle n'utilise pas Traefik mais Nginx et dispose de son serveur Postfix.
 
+La documentation de Camap se trouve sur le [wiki](https://wiki.amap44.org)
+
+La documentation technique de Camap peut être consultée dans [camap-ts](https://github.com/CAMAP-APP/camap-ts#documentation-technique)
+
+L'interAMAP44 propose [l'hébergement de votre groupe Camap](https://amap44.org/camap) sur un serveur mutualisé entre plus de 150 AMAP de France et de Belgique, moyennant une participation modique (sur la base du partage du coût entre les AMAP)
+
 __ATTENTION:__ /!\ Ne pas utiliser la configuration par défaut pour une mise en production /!\
 
 # Construction des containers depuis les sources
