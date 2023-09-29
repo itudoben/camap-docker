@@ -34,11 +34,11 @@ services:
 
     labels:
       # global redirect to https
-      - "traefik.http.routers.http-catchall.rule=hostregexp(`{host:.+}`)"
-      - "traefik.http.routers.http-catchall.entrypoints=web,nest"
-      - "traefik.http.routers.http-catchall.middlewares=redirect-to-https"
+      #- "traefik.http.routers.http-catchall.rule=hostregexp(`{host:.+}`)"
+      #- "traefik.http.routers.http-catchall.entrypoints=web,nest"
+      #- "traefik.http.routers.http-catchall.middlewares=redirect-to-https"
       # middleware redirect
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      #- "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
          
       # CROS error
       - "traefik.http.middlewares.serviceheaders.headers.accesscontrolalloworiginlist=https://camap.localdomain,https://api.camap.localdomain" 
@@ -90,7 +90,7 @@ services:
       - "traefik.http.routers.nest-loc-camap.entrypoints=websecure"
       - "traefik.http.routers.nest-loc-camap.tls=true"
       - "traefik.http.routers.nest-loc-camap.middlewares=serviceheaders"
-      - "traefik.http.routers.nest-loc-camap.certresolver=letsencrypt"
+      - "traefik.http.routers.nest-loc-camap.certresolver=myresolver"
       - "traefik.http.routers.nest-loc-camap.tls.domains[0].main=localdomain"
       - "traefik.http.routers.nest-loc-camap.tls.domains[0].sans=*.localdomain"
       
@@ -113,7 +113,7 @@ services:
       - "traefik.http.routers.neko-loc-camap.entrypoints=websecure"
       - "traefik.http.routers.neko-loc-camap.tls=true"
       - "traefik.http.routers.neko-loc-camap.middlewares=serviceheaders"
-      - "traefik.http.routers.neko-loc-camap.certresolver=letsencrypt"
+      - "traefik.http.routers.neko-loc-camap.certresolver=myresolver"
       - "traefik.http.routers.neko-loc-camap.tls.domains[0].main=localdomain"
       - "traefik.http.routers.neko-loc-camap.tls.domains[0].sans=*.localdomain"      
 volumes:

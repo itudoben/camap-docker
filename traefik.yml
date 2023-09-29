@@ -9,9 +9,7 @@ entryPoints:
     address: ":3010"
   websecure:
     address: ":443"
-    http:
-        tls: 
-        certificatesResolvers: letsencrypt
+    
     
   
 providers:
@@ -24,15 +22,13 @@ providers:
     watch: true
   
 certificatesResolvers:
-  letsencrypt:
+  myresolver:
     acme:
-      email: inter@amap44.org
+      email: your-email@example.com
       storage: acme.json
-      caServer: https://acme-staging-v02.api.letsencrypt.org/directory
       httpChallenge:
         # used during the challenge
         entryPoint: web
-
 
      
 
