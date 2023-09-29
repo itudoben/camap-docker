@@ -47,25 +47,29 @@ Cette clef est utilisée pour vérifier le hash des mots de passe des comptes Ca
 
 - ```MAPBOX_KEY``` contient la clef pour les fonctions de géolocalisation, à créer sur mapbox.com (gratuit jusqu'à 100.000 requetes par mois)
 
-La rubrique _MAIL_ doit être renseignée avec les informations de votre serveur de mail
+La rubrique _MAIL_ doit être renseignée avec les informations de votre serveur SMTP
 
 ### Configuration Certificat
 
+L'installation par défaut utilise un certificat autosigné généré avec openssl
+
 Pour automatiser la fourniture d'un certificat letsencrypt personnalisé:
 
-- éditer __traefik.yml__  , décommenter la rubrique suivante (en enlevant le caractètre \#), et modifier l'email: 
+- éditer __traefik.yml__ et décommenter la rubrique suivante (en enlevant le caractètre \#), et modifier l'email: 
 
 ```
-certificatesResolvers:
-  myresolver:
-    acme:
-      email: inter@amap44.org
-      storage: acme.json
-      caServer: https://acme-staging-v02.api.letsencrypt.org/directory
-      httpChallenge:
-        # used during the challenge
-        entryPoint: web
+#certificatesResolvers:
+#  le:
+#    acme:
+#      email: admin@camap.tld
+#      storage: /etc/traefik/ssl/acme.json
+#      httpChallenge:
+#        # used during the challenge
+#        entryPoint: web
 ```
+
+- décommenter les lignes ```traefik.http.routers.nest-loc-camap.tls``` de __docker-compose.yml__
+
 
 ## Installation Linux Debian
 
@@ -83,7 +87,7 @@ Pour une installation en local:
 
 exécuter ```docker compose up -d --build```
 
-Après l'installation, remonter une sauvegarde via mysqlworkbench ou myloader ou créer le compte admin via https://camap/install
+Après l'installation, remonter une sauvegarde via mysqlworkbench ou myloader ou créer le compte admin via https://camap.localdomain/install
 
 ## Installation sous Windows
 
@@ -115,6 +119,9 @@ Copier ensuite depuis camap/camap-docker/:
 Créer le répertoire traefik/config dans camap et copier:
 
 - ```traefik/config/dynamic.yml``` dans ```camap/traefik/config/dynamic.yml```
+
+Copier le répertoire camap-docker/ssl dans camap:
+
 
 #### Modifier les lignes 3 à 7 de __camap-ts.Dockerfile__ dans Camap avec les valeurs indiquées dans __camap-ts/.env__
 

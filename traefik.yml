@@ -5,8 +5,20 @@ api:
 entryPoints:
   web:
     address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+  
   nest:
     address: ":3010"
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+
   websecure:
     address: ":443"
     http:
@@ -24,8 +36,8 @@ providers:
 #certificatesResolvers:
 #  le:
 #    acme:
-#      email: inter@amap44.org
-#      storage: /ssl/acme.json
+#      email: admin@camap.tld
+#      storage: /etc/traefik/ssl/acme.json
 #      httpChallenge:
 #        # used during the challenge
 #        entryPoint: web
