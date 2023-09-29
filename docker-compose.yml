@@ -29,7 +29,7 @@ services:
       - ./traefik.yml:/traefik.yml 
       - ./traefik/config:/etc/traefik/config
       - ./logs:/var/log/traefik
-      - ssl:/ssl
+      - ./ssl:/etc/traefik/config/ssl
       
 
     labels:
@@ -118,7 +118,6 @@ services:
       #- "traefik.http.routers.neko-loc-camap.tls.domains[0].sans=*.localdomain"      
 volumes:
   database:
-  ssl:
 
 #networks:
 #  loc-camap-net:
