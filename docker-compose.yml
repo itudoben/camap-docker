@@ -17,7 +17,6 @@ services:
       - "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
       - "--certificatesresolvers.myresolver.acme.email=inter@amap44.org"
       - "--certificatesresolvers.myresolver.acme.storage=/acme.json"
-    ports:
     
     ports:
       # The HTTP port
