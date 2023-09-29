@@ -4,6 +4,8 @@ Le package camap-docker permet une installation simplifiée de Camap sur une mac
 
 A noter que l'architecture de production déployée par l'InterAMAP44 diffère, elle n'utilise pas Traefik mais Nginx et dispose de son serveur Postfix.
 
+__ATTENTION:__ Ne pas utiliser la configuration par défaut pour une mise en production */!\*
+
 # Construction des containers depuis les sources
 
 Script de construction des containers Camap
