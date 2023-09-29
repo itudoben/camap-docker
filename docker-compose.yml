@@ -17,7 +17,7 @@ services:
       - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoints=web"
       - "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
       - "--certificatesresolvers.myresolver.acme.email=inter@amap44.org"
-      - "--certificatesresolvers.myresolver.acme.storage=/acme.json"
+      - "--certificatesresolvers.myresolver.acme.storage=/etc/traefik/config/ssl/acme.json"
     
     ports:
       # The HTTP port
@@ -34,7 +34,7 @@ services:
       - ./traefik/config:/etc/traefik/config
       - ./letsencrypt/acme.json:/acme.json
       - ./logs:/var/log/traefik
-      - ./ssl:/ssl
+      - ./ssl:/etc/traefik/config/ssl
       
 
     labels:
