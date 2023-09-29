@@ -51,6 +51,8 @@ La rubrique _MAIL_ doit être renseignée avec les informations de votre serveur
 
 ### Configuration Certificat
 
+___A VALIDER___
+
 L'installation par défaut utilise un certificat autosigné généré avec openssl
 
 Pour automatiser la fourniture d'un certificat letsencrypt personnalisé:
