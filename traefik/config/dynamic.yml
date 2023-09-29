@@ -1,4 +1,4 @@
 tls:
-  certificates:
-    - certFile: /ssl/fullchain.pem
-      keyFile: /ssl/privkey.pem
+    certificates:
+        -   certFile: /ssl/server.cer
+            keyFile: /ssl/server.key

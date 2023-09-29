@@ -9,6 +9,8 @@ entryPoints:
     address: ":3010"
   websecure:
     address: ":443"
+    http:
+      tls: {}
   
 providers:
   docker:
@@ -19,14 +21,14 @@ providers:
     directory: "/etc/traefik/config"
     watch: true
   
-certificatesResolvers:
-  le:
-    acme:
-      email: inter@amap44.org
-      storage: /ssl/acme.json
-      httpChallenge:
-        # used during the challenge
-        entryPoint: web
+#certificatesResolvers:
+#  le:
+#    acme:
+#      email: inter@amap44.org
+#      storage: /ssl/acme.json
+#      httpChallenge:
+#        # used during the challenge
+#        entryPoint: web
 
 accessLog:
 #  level: debug
