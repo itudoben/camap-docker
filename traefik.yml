@@ -11,7 +11,7 @@ entryPoints:
     address: ":443"
     http:
         tls: 
-        certResolver: letsencrypt
+        certificatesResolvers: letsencrypt
     
   
 providers:
@@ -23,7 +23,7 @@ providers:
     directory: "/etc/traefik/config"
     watch: true
   
-  certResolver:
+  certificatesResolvers:
     letsencrypt:
       acme:
         email: inter@amap44.org
