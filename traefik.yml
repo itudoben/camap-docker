@@ -35,5 +35,4 @@ certificatesResolvers:
 
 
 accessLog:
-level: debug
   filePath: "/var/log/traefik/traefik.log"
