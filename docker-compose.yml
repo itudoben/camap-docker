@@ -27,8 +27,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./traefik.yml:/traefik.yml 
       - ./traefik/config:/etc/traefik/config
-      - ./ssl:/ssl
-      - ./logs:/logs
+      - ./letsencrypt/acme.json:/acme.json
+      - ./logs:/var/log/traefik
+      
 
     labels:
       # global redirect to https
@@ -88,6 +89,9 @@ services:
       - "traefik.http.routers.nest-loc-camap.entrypoints=websecure"
       - "traefik.http.routers.nest-loc-camap.tls=true"
       - "traefik.http.routers.nest-loc-camap.middlewares=serviceheaders"
+      - "traefik.http.routers.nest-loc-camap.certresolver=myresolver"
+      - "traefik.http.routers.nest-loc-camap.tls.domains[0].main=localdomain"
+      - "traefik.http.routers.nest-loc-camap.tls.domains[0].sans=*.localdomain"
       
 
   neko-loc-camap:
@@ -108,7 +112,9 @@ services:
       - "traefik.http.routers.neko-loc-camap.entrypoints=websecure"
       - "traefik.http.routers.neko-loc-camap.tls=true"
       - "traefik.http.routers.neko-loc-camap.middlewares=serviceheaders"
-      
+      - "traefik.http.routers.neko-loc-camap.certresolver=myresolver"
+      - "traefik.http.routers.neko-loc-camap.tls.domains[0].main=localdomain"
+      - "traefik.http.routers.neko-loc-camap.tls.domains[0].sans=*.localdomain"      
 volumes:
   database:
 

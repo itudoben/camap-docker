@@ -23,14 +23,18 @@ providers:
     directory: "/etc/traefik/config"
     watch: true
 
-#certificatesResolvers:
-#  letsencrypt:
-#    acme:
-#      email: amaury.cormier@gmail.com
-#      storage: /letsencrypt/acme.json
-#      httpChallenge:
-#        entryPoint: http
+certificatesResolvers:
+  myresolver:
+    acme:
+      email: inter@amap44.org
+      storage: acme.json
+      caServer: https://acme-staging-v02.api.letsencrypt.org/directory
+      httpChallenge:
+        # used during the challenge
+        entryPoint: web
+     
 
-accessLog: {}
-log:
-  level: debug
+
+accessLog:
+  #level: debug
+  filePath: "/var/log/traefik/traefik.log"

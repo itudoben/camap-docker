@@ -34,11 +34,11 @@ fi
 
 cd $DESTDIR
 echo "Installation des sources de camap-hx"
-git clone https://github.com/Mandrak-Kimigo/camap-hx.git
+git clone https://github.com/CAMAP-APP/camap-hx.git
 [ $? -ne 0 ] && echo "Erreur d'installation -1" && exit -1
 
 echo "Installation des sources de camap-ts"
-git clone https://github.com/Mandrak-Kimigo/camap-ts.git
+git clone https://github.com/CAMAP-APP/camap-ts.git
 [ $? -ne 0 ] && echo "Erreur d'installation -2" && exit -2
 
 echo "Copie des fichiers de configuration"

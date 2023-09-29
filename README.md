@@ -1,15 +1,11 @@
 # camap-docker
 
-__TODO:__ 
-
-- Certificat valide
-
 
 # Construction des containers depuis les sources
 
 Script de construction des containers Camap
 
-git clone https://github.com/Mandrak-Kimigo/camap-docker.git
+git clone https://github.com/CAMAP-APP/camap-docker.git
 
 ## Prérequis
 
@@ -53,6 +49,24 @@ Cette clef est utilisée pour vérifier le hash des mots de passe des comptes Ca
 
 La rubrique _MAIL_ doit être renseignée avec les informations de votre serveur de mail
 
+### Configuration Certificat
+
+Pour automatiser la fourniture d'un certificat letsencrypt personnalisé:
+
+- éditer __traefik.yml__  , décommenter la rubrique suivante (en enlevant le caractètre \#), et modifier l'email: 
+
+```
+certificatesResolvers:
+  myresolver:
+    acme:
+      email: inter@amap44.org
+      storage: acme.json
+      caServer: https://acme-staging-v02.api.letsencrypt.org/directory
+      httpChallenge:
+        # used during the challenge
+        entryPoint: web
+```
+
 ## Installation Linux Debian
 
 lancer
@@ -79,11 +93,11 @@ Créer un répertoire Camap
 
 Dans ce répertoire:
 
-- ```git clone https://github.com/Mandrak-Kimigo/camap-hx.git```
+- ```git clone https://github.com/CAMAP-APP/camap-hx.git```
 
-- ```git clone https://github.com/Mandrak-Kimigo/camap-ts.git```
+- ```git clone https://github.com/CAMAP-APP/camap-ts.git```
 
-- ```git clone https://github.com/Mandrak-Kimigo/camap-docker.git```
+- ```git clone https://github.com/CAMAP-APP/camap-docker.git```
 
 
 Copier ensuite depuis camap/camap-docker/:
