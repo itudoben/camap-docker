@@ -1,6 +1,6 @@
 # camap-docker
 
-Le package camap-docker permet une installation simplifiée de Camap sur une machine Windows ou Linux (ou autre mais non testé). Il utilise les sources camap-hx et camap-ts des dernières versions publiées sur [CAMAP-APP](https://github.com/CAMAP-APP/camap-docker.git) qui est également la version de production du [serveur de l'InterAMAP44](https://camap.amap44.org) 
+Le package camap-docker permet une installation simplifiée de Camap sur une machine Windows ou Linux (ou autre mais non testé). Il utilise les sources camap-hx et camap-ts des dernières versions publiées sur [CAMAP-APP](https://github.com/CAMAP-APP/) qui est également la version de production du [serveur de l'InterAMAP44](https://camap.amap44.org) 
 
 A noter que l'architecture de production déployée par l'InterAMAP44 diffère, elle n'utilise pas Traefik mais Nginx et dispose de son serveur Postfix.
 
