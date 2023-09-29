@@ -118,11 +118,9 @@ Copier ensuite depuis camap/camap-docker/:
 
 - ```config.xml``` dans ```camap/camap-hx```
 
-Créer le répertoire traefik/config dans camap et copier:
+- le répertoire ```traefik``` et son contenu dans ```camap```
 
-- ```traefik/config/dynamic.yml``` dans ```camap/traefik/config/dynamic.yml```
-
-Copier le répertoire camap-docker/ssl dans camap:
+- le répertoire ```ssl``` et son contenu dans ```camap```
 
 
 #### Modifier les lignes 3 à 7 de __camap-ts.Dockerfile__ dans Camap avec les valeurs indiquées dans __camap-ts/.env__
