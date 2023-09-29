@@ -11,18 +11,8 @@ entryPoints:
     address: ":443"
     http:
         tls: 
-          certificatesResolvers:
-            myresolver:
-              acme:
-                email: inter@amap44.org
-                storage: acme.json
-                caServer: https://acme-staging-v02.api.letsencrypt.org/directory
-                httpChallenge:
-                # used during the challenge
-                entryPoint: web
+        certResolver: letsencrypt
     
-  
-  
   
 providers:
   docker:
@@ -32,6 +22,16 @@ providers:
   file:
     directory: "/etc/traefik/config"
     watch: true
+  
+  certificatesResolvers:
+    letsencrypt:
+      acme:
+        email: inter@amap44.org
+        storage: acme.json
+        caServer: https://acme-staging-v02.api.letsencrypt.org/directory
+        httpChallenge:
+          # used during the challenge
+          entryPoint: web
 
 
      
