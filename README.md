@@ -89,14 +89,14 @@ Pour automatiser la fourniture d'un certificat letsencrypt personnalisé:
 lancer
 `build_camap_docker.sh <DESTDIR>`
 
-pour une installation de Camap dans ```DESTDIR```
+pour une installation de Camap dans ```<DESTDIR>```
 
 Renseigner le DNS ou votre fichier hosts avec les valeurs correspondante à la configuration.
 Pour une installation en local:
 
 ```127.0.0.1 camap.localdomain api.camap.localdomain```
 
-#### Modifier les lignes 3 à 7 de __camap-ts.Dockerfile__ dans $DESTDIR avec les valeurs indiquées dans __.env__
+#### Modifier les lignes 3 à 7 de __camap-ts.Dockerfile__ dans DESTDIR avec les valeurs indiquées dans __.env__
 
 exécuter ```docker compose up -d --build```
 
