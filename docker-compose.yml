@@ -29,6 +29,7 @@ services:
       - ./traefik/config:/etc/traefik/config
       - ./letsencrypt/acme.json:/acme.json
       - ./logs:/var/log/traefik
+      - ./ssl:/ssl
       
 
     labels:
