@@ -132,5 +132,11 @@ Pour une installation en local:
 
 exécuter ```docker compose up -d --build```
 
-Après l'installation, remonter une sauvegarde via mysqlworkbench ou myloader ou créer le compte admin via https://camap.localdomain/install
+### Accès à l'application
+
+Le dashboard Traefik est accessible via http://127.0.0.1:8080/dashboard/
+Après l'installation avec les certificats autosignés, un accès via le navigateur à https://api.camap.localdomain est nécessaire pour passer outre l'avertissement de sécurité, sinon les menus gérés par api.camap ne fonctionneront pas.
+Ensuite un premier appel à https://camap.localdomain/install est nécessaire pour initialiser la bdd.
+
+
 
