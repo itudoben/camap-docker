@@ -23,7 +23,7 @@ providers:
     directory: "/etc/traefik/config"
     watch: true
   
-  certificatesResolvers:
+  certResolver:
     letsencrypt:
       acme:
         email: inter@amap44.org
