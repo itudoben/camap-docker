@@ -4,7 +4,7 @@ SRCDIR=$PWD
 if [ $# -ne 1 ]
 then
      echo "Vous devez préciser le répertoire d'installation"
-     echo "ex: \"build_camap_dev.sh /var/CAMAP\" pour une instance dans /srv/data/CAMAP"
+     echo "ex: \"build_camap_dev.sh /var/CAMAP\" pour une instance dans /var/CAMAP"
      exit 0
 fi
 DESTDIR=$1
