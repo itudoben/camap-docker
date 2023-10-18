@@ -1,8 +1,8 @@
 # camap-docker
 
-Le package camap-docker permet une installation simplifiée de Camap sur une machine Windows ou Linux (ou autre mais non testé). Il utilise les sources camap-hx et camap-ts des dernières versions publiées sur [CAMAP-APP](https://github.com/CAMAP-APP/camap-docker.git) qui est également la version de production du [serveur de l'InterAMAP44](https://camap.amap44.org) 
+Le package [**camap-docker**](https://github.com/CAMAP-APP/camap-docker) permet une installation simplifiée de Camap sur une machine Windows ou Linux (ou autre mais non testé). Il utilise les sources [**camap-hx**](https://github.com/CAMAP-APP/camap-hx) et [**camap-ts**](https://github.com/CAMAP-APP/camap-ts) des dernières versions publiées sur [CAMAP-APP](https://github.com/CAMAP-APP/camap-docker.git) qui est également la version de production du [serveur de l'InterAMAP44](https://camap.amap44.org) 
 
-A noter que la version de production déployée par l'InterAMAP44 diffère, elle n'utilise pas Traefik mais Nginx et dispose de son serveur Postfix.
+A noter que l'infrastructure de production déployée par l'InterAMAP44 diffère en ce qu'elle n'utilise pas Traefik mais Nginx comme reverse proxy.
 
 # Construction des containers depuis les sources
 
@@ -24,7 +24,7 @@ https://docs.docker.com/engine/install/debian/
 
 _Sur Windows_
 
-Installer [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+Installer [Docker Desktop](https://www.docker.com/products/docker-desktop/) et [Github pour windows](https://windows.github.com/)
 
 
 ## Installation Linux Debian
@@ -144,6 +144,3 @@ Le dashboard Traefik est accessible via http://127.0.0.1:8080/dashboard/
 Après l'installation avec les certificats autosignés, un accès via le navigateur à https://api.camap.localdomain est nécessaire pour passer outre l'avertissement de sécurité, sinon les menus gérés par api.camap ne fonctionneront pas.
 
 Ensuite un premier appel à https://camap.localdomain/install est nécessaire pour initialiser la bdd.
-
-
-
