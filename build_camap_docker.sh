@@ -62,6 +62,9 @@ echo "copie de traefik/config"
 cp -rp $SRCDIR/traefik $DESTDIR
 [ $? -ne 0 ] && echo "Erreur d'installation -7" && exit -7
 
+echo "copie de ssl"
+cp -rp $SRCDIR/ssl $DESTDIR
+[ $? -ne 0 ] && echo "Erreur d'installation -8" && exit -8
 
 echo "Build des containers..."
 echo "vous pouvez aller prendre un café"
