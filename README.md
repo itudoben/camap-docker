@@ -122,7 +122,7 @@ Pour automatiser la fourniture d'un certificat letsencrypt personnalisé:
 #certificatesResolvers:
 #  le:
 #    acme:
-#      email: admin@camap.tld
+#      email: admin@camap.localdomain
 #      storage: /etc/traefik/ssl/acme.json
 #      httpChallenge:
 #        # used during the challenge
