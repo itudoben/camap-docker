@@ -8,7 +8,7 @@ A noter que la version de production déployée par l'InterAMAP44 diffère, elle
 
 Script de construction des containers Camap
 
-git clone https://github.com/CAMAP-APP/camap-docker.git
+```git clone https://github.com/CAMAP-APP/camap-docker.git```
 
 ## Prérequis
 
