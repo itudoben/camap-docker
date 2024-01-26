@@ -71,5 +71,5 @@ echo "vous pouvez aller prendre un café"
 cd $DESTDIR
 docker compose build
 
-echo "Vous pouvez maintenant démarrer les containers"
+echo "Vous pouvez maintenant démarrer les containers depuis répertoide d'installation $DESTDIR "
 echo "à l'aide de la commande: docker compose up -d"
